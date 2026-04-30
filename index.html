@@ -2,83 +2,64 @@
 <html>
   <head>
     <title>Potomu.com - Galeri</title>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <style>
       body { font-family: 'Segoe UI', Arial, sans-serif; background: linear-gradient(135deg, #1e3a8a, #3b82f6); color: white; text-align: center; padding: 40px 20px 120px 20px; margin: 0; }
-  .page { display: none; }
-  .page.active { display: block; }
+    .page { display: none; }
+    .page.active { display: block; }
       h1 { font-size: 42px; color: white; margin-bottom: 10px; text-shadow: 2px 2px 8px rgba(0,0,0,0.4); }
-  .subtitle { opacity: 0.9; margin-bottom: 30px; }
-  .upload-area { max-width: 600px; margin: 0 auto 30px auto; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(12px); border: 2px dashed rgba(255,255,255,0.4); border-radius: 16px; padding: 25px; }
-  .upload-area input { display: none; }
-  .upload-label { display: inline-block; background: #fbbf24; color: #1e3a8a; padding: 12px 24px; border-radius: 10px; font-weight: 700; cursor: pointer; transition: all 0.2s ease; }
-  .upload-label:hover { background: #f59e0b; transform: scale(1.05); }
-  .upload-info { font-size: 14px; opacity: 0.8; margin-top: 10px; }
-  .galeri { display: flex; gap: 25px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px; }
-  .card-foto { background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(16px); border-radius: 20px; padding: 12px; width: 220px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid rgba(255,255,255,0.15); position: relative; box-shadow: 0 4px 20px rgba(0,0,0,0.15); animation: fadeInUp 0.4s ease forwards; }
-  .card-foto:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 20px 40px rgba(0,0,0,0.4); border: 1px solid rgba(251, 191, 36, 0.4); }
-  .card-foto img { width: 100%; height: 200px; object-fit: cover; border-radius: 14px; cursor: pointer; transition: all 0.3s ease; }
-  .card-foto:hover img { transform: scale(1.05); }
-  .checkbox { position: absolute; top: 10px; left: 10px; width: 24px; height: 24px; cursor: pointer; accent-color: #fbbf24; border-radius: 6px; box-shadow: 0 1px 4px rgba(0,0,0,0.2); z-index: 2; }
- .card-menu-btn { 
-  position: absolute; 
-  top: 10px; 
-  right: 10px; 
-  background: rgba(0, 0, 0, 0.5); 
-  color: white; 
-  border: none; 
-  width: 28px; 
-  height: 28px; 
-  border-radius: 8px; /* INI DIUBAH DARI 50% */
-  cursor: pointer; 
-  font-size: 16px; 
-  font-weight: bold; 
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
-  backdrop-filter: blur(10px); 
-  z-index: 3; 
-  transition: all 0.2s ease; 
-}
-  .card-menu-btn:hover { background: rgba(0, 0, 0, 0.7); transform: scale(1.1); }
-  .menu-dropdown { display: none; position: absolute; top: 42px; right: 10px; background: rgba(30, 41, 59, 0.95); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.2); border-radius: 12px; overflow: hidden; z-index: 4; min-width: 120px; box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
-  .menu-dropdown.show { display: block; animation: fadeInUp 0.2s ease; }
-  .menu-item { padding: 12px 16px; font-size: 14px; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: all 0.2s ease; }
-  .menu-item:hover { background: rgba(255,255,255,0.1); }
-  .menu-item.hapus { color: #ef4444; }
-  .info-foto { text-align: left; margin-top: 14px; }
-  .harga { font-size: 18px; font-weight: 700; color: #fbbf24; margin: 6px 0; }
-  .fotografer { font-size: 13px; opacity: 0.8; }
-  .keranjang { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 500px; background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 20px; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 8px 32px rgba(0,0,0,0.3); transition: all 0.3s ease; }
-  .keranjang.hidden { bottom: -100px; opacity: 0; }
-  .info-keranjang { text-align: left; }
-  .total-label { font-size: 14px; opacity: 0.8; }
-  .total { font-size: 22px; font-weight: 700; color: #fbbf24; }
-  .jumlah-item { font-size: 13px; opacity: 0.7; }
+    .subtitle { opacity: 0.9; margin-bottom: 30px; }
+    .upload-area { max-width: 600px; margin: 0 auto 30px auto; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(12px); border: 2px dashed rgba(255,255,255,0.4); border-radius: 16px; padding: 25px; }
+    .upload-area input { display: none; }
+    .upload-label { display: inline-block; background: #fbbf24; color: #1e3a8a; padding: 12px 24px; border-radius: 10px; font-weight: 700; cursor: pointer; transition: all 0.2s ease; }
+    .upload-label:hover { background: #f59e0b; transform: scale(1.05); }
+    .upload-info { font-size: 14px; opacity: 0.8; margin-top: 10px; }
+    .galeri { display: flex; gap: 25px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px; }
+    .card-foto { background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(16px); border-radius: 20px; padding: 12px; width: 220px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid rgba(255,255,255,0.15); position: relative; box-shadow: 0 4px 20px rgba(0,0,0,0.15); animation: fadeInUp 0.4s ease forwards; }
+    .card-foto:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 20px 40px rgba(0,0,0,0.4); border: 1px solid rgba(251, 191, 36, 0.4); }
+    .card-foto img { width: 100%; height: 200px; object-fit: cover; border-radius: 14px; cursor: pointer; transition: all 0.3s ease; }
+    .card-foto:hover img { transform: scale(1.05); }
+    .checkbox { position: absolute; top: 10px; left: 10px; width: 24px; height: 24px; cursor: pointer; accent-color: #fbbf24; border-radius: 6px; box-shadow: 0 1px 4px rgba(0,0,0,0.2); z-index: 2; }
+    .card-menu-btn { position: absolute; top: 10px; right: 10px; background: rgba(0, 0, 0, 0.5); color: white; border: none; width: 28px; height: 28px; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: bold; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px); z-index: 3; transition: all 0.2s ease; }
+    .card-menu-btn:hover { background: rgba(0, 0, 0, 0.7); transform: scale(1.1); }
+    .menu-dropdown { display: none; position: absolute; top: 42px; right: 10px; background: rgba(30, 41, 59, 0.95); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.2); border-radius: 12px; overflow: hidden; z-index: 4; min-width: 120px; box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+    .menu-dropdown.show { display: block; animation: fadeInUp 0.2s ease; }
+    .menu-item { padding: 12px 16px; font-size: 14px; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: all 0.2s ease; }
+    .menu-item:hover { background: rgba(255,255,255,0.1); }
+    .menu-item.hapus { color: #ef4444; }
+    .info-foto { text-align: left; margin-top: 14px; }
+    .harga { font-size: 18px; font-weight: 700; color: #fbbf24; margin: 6px 0; }
+    .fotografer { font-size: 13px; opacity: 0.8; }
+    .keranjang { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 500px; background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 20px; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 8px 32px rgba(0,0,0,0.3); transition: all 0.3s ease; }
+    .keranjang.hidden { bottom: -100px; opacity: 0; }
+    .info-keranjang { text-align: left; }
+    .total-label { font-size: 14px; opacity: 0.8; }
+    .total { font-size: 22px; font-weight: 700; color: #fbbf24; }
+    .jumlah-item { font-size: 13px; opacity: 0.7; }
       button { background: #fbbf24; color: #1e3a8a; border: none; padding: 14px 28px; font-size: 16px; font-weight: 700; border-radius: 12px; cursor: pointer; transition: all 0.2s ease; }
       button:hover { background: #f59e0b; transform: scale(1.05); }
       button:disabled { background: rgba(148, 163, 184, 0.5); color: rgba(255,255,255,0.5); cursor: not-allowed; transform: scale(1); }
-  .btn-secondary { background: rgba(255,255,255,0.2); color: white; }
-  .btn-secondary:hover { background: rgba(255,255,255,0.3); }
-  .checkout-container { max-width: 500px; margin: 0 auto; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(12px); border-radius: 20px; padding: 30px; border: 1px solid rgba(255,255,255,0.2); }
-  .list-beli { text-align: left; margin: 20px 0; padding: 20px; background: rgba(0,0,0,0.2); border-radius: 12px; }
-  .item-beli { display: flex; justify-content: space-between; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); }
-  .item-beli:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-  .total-bayar { font-size: 28px; font-weight: 700; color: #fbbf24; margin: 20px 0; }
-  .qris-box { background: white; padding: 20px; border-radius: 16px; margin: 25px 0; }
-  .qris-box img { width: 200px; height: 200px; }
-  .qris-text { color: #1e3a8a; font-weight: 600; margin-top: 10px; }
-  .input-email { width: 100%; padding: 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.1); color: white; font-size: 16px; margin: 15px 0; box-sizing: border-box; }
-  .input-email::placeholder { color: rgba(255,255,255,0.6); }
-  .modal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); justify-content: center; align-items: center; }
-  .modal img { max-width: 90%; max-height: 80%; border-radius: 12px; }
-  .close { position: absolute; top: 30px; right: 50px; color: white; font-size: 40px; cursor: pointer; }
-  .modal-edit { display: none; position: fixed; z-index: 101; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); justify-content: center; align-items: center; }
-  .form-edit { background: rgba(30, 58, 138, 0.95); backdrop-filter: blur(20px); padding: 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.3); width: 90%; max-width: 400px; }
-  .form-edit input { width: 100%; padding: 12px; margin: 8px 0 16px 0; border-radius: 10px; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.1); color: white; font-size: 16px; box-sizing: border-box; }
-  .form-edit label { display: block; text-align: left; font-size: 14px; opacity: 0.9; }
-   #emptyState { display: none; padding: 60px 20px; opacity: 0.7; }
-   @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .btn-secondary { background: rgba(255,255,255,0.2); color: white; }
+    .btn-secondary:hover { background: rgba(255,255,255,0.3); }
+    .checkout-container { max-width: 500px; margin: 0 auto; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(12px); border-radius: 20px; padding: 30px; border: 1px solid rgba(255,255,255,0.2); }
+    .list-beli { text-align: left; margin: 20px 0; padding: 20px; background: rgba(0,0,0,0.2); border-radius: 12px; }
+    .item-beli { display: flex; justify-content: space-between; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .item-beli:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .total-bayar { font-size: 28px; font-weight: 700; color: #fbbf24; margin: 20px 0; }
+    .qris-box { background: white; padding: 20px; border-radius: 16px; margin: 25px 0; }
+    .qris-box img { width: 200px; height: 200px; }
+    .qris-text { color: #1e3a8a; font-weight: 600; margin-top: 10px; }
+    .input-email { width: 100%; padding: 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.1); color: white; font-size: 16px; margin: 15px 0; box-sizing: border-box; }
+    .input-email::placeholder { color: rgba(255,255,255,0.6); }
+    .modal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); justify-content: center; align-items: center; }
+    .modal img { max-width: 90%; max-height: 80%; border-radius: 12px; }
+    .close { position: absolute; top: 30px; right: 50px; color: white; font-size: 40px; cursor: pointer; }
+    .modal-edit { display: none; position: fixed; z-index: 101; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); justify-content: center; align-items: center; }
+    .form-edit { background: rgba(30, 58, 138, 0.95); backdrop-filter: blur(20px); padding: 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.3); width: 90%; max-width: 400px; }
+    .form-edit input { width: 100%; padding: 12px; margin: 8px 0 16px 0; border-radius: 10px; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.1); color: white; font-size: 16px; box-sizing: border-box; }
+    .form-edit label { display: block; text-align: left; font-size: 14px; opacity: 0.9; }
+      #emptyState { display: none; padding: 60px 20px; opacity: 0.7; }
+      @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
   </head>
   <body>
@@ -105,9 +86,10 @@
         <button id="btnBayar" onclick="keCheckout()" disabled>Checkout</button>
       </div>
     </div>
+
     <div id="pageCheckout" class="page">
       <h1>CHECKOUT</h1>
-      <p class="subtitle">Masukkan email buat terima link download 🙏</p>
+      <p class="subtitle">Masukkan email buat terima konfirmasi 🙏</p>
       <div class="checkout-container">
         <div class="list-beli" id="listBeli"></div>
         <div class="total-bayar" id="totalBayar">Total: Rp 0</div>
@@ -116,15 +98,17 @@
           <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=POTOMU.COM-BAYAR" alt="QRIS">
           <div class="qris-text">1. Scan QRIS & Bayar<br>2. Klik tombol di bawah</div>
         </div>
-        <button onclick="konfirmasiBayar()">Saya Sudah Bayar & Kirim Email</button>
+        <button id="btnKonfirmasi" onclick="konfirmasiBayar()">Saya Sudah Bayar & Kirim Email</button>
         <br><br>
         <button class="btn-secondary" onclick="kembaliKeGaleri()">← Kembali Pilih Foto</button>
       </div>
     </div>
+
     <div id="modalFoto" class="modal" onclick="tutupFoto()">
       <span class="close">&times;</span>
       <img id="imgGede">
     </div>
+
     <div id="modalEdit" class="modal-edit">
       <div class="form-edit">
         <h2>Edit Foto</h2>
@@ -136,11 +120,17 @@
         <br><br>
         <button class="btn-secondary" onclick="tutupEdit()">Batal</button>
       </div>
+    </div>
+
     <script>
-      const EMAILJS_SERVICE_ID = 'service_xxxxxxx';
-      const EMAILJS_TEMPLATE_ID = 'template_xxxxxxx';
-      const EMAILJS_PUBLIC_KEY = 'xxxxxxxxxxxxxxx';
+      // KONFIG EMAILJS - UDAH BENER
+      const EMAILJS_SERVICE_ID = 'service_1ycwelr';
+      const EMAILJS_TEMPLATE_ID = 'template_c6urgsp';
+      const EMAILJS_PUBLIC_KEY = '698LfVVbZo2xLmoOE';
+      const NAMA_FG = 'FG Anton'; // GANTI NAMA KAMU
+
       emailjs.init(EMAILJS_PUBLIC_KEY);
+
       let semuaFoto = [];
       let itemDipilih = [];
       let idEditSaatIni = null;
@@ -234,7 +224,7 @@
                 <div class="menu-item" onclick="bukaEdit(${foto.id})">✏️ Edit</div>
                 <div class="menu-item hapus" onclick="hapusFoto(${foto.id})">🗑️ Hapus</div>
               </div>
-              <input type="checkbox" class="checkbox" data-harga="${foto.harga}" data-nama="${foto.nama}" data-link="${foto.src}" onchange="updateTotal()">
+              <input type="checkbox" class="checkbox" data-harga="${foto.harga}" data-nama="${foto.nama}" data-id="${foto.id}" onchange="updateTotal()">
               <img src="${foto.src}" alt="${foto.nama}" onclick="bukaFoto(this.src)">
               <div class="info-foto">
                 <div>${foto.nama}</div>
@@ -299,10 +289,10 @@
           if (checkbox.checked) {
             let harga = parseInt(checkbox.getAttribute('data-harga'));
             let nama = checkbox.getAttribute('data-nama');
-            let link = checkbox.getAttribute('data-link');
+            let id = checkbox.getAttribute('data-id');
             total += harga;
             jumlah++;
-            itemDipilih.push({nama: nama, harga: harga, link: link});
+            itemDipilih.push({nama: nama, harga: harga, id: id});
           }
         });
         document.getElementById('totalHarga').innerText = 'Rp ' + total.toLocaleString('id-ID');
@@ -335,30 +325,51 @@
 
       function konfirmasiBayar() {
         const email = document.getElementById('emailUser').value;
-        if (!email) {
-          alert('Isi email dulu bro 🙏');
-          return;
-        }
+        const btnKonfirm = document.getElementById('btnKonfirmasi');
+
+        if (!email) return alert('Isi email dulu bro 🙏');
+        if (!email.includes('@')) return alert('Format email salah bro!');
+
+        btnKonfirm.disabled = true;
+        btnKonfirm.innerText = 'Mengirim...';
+
+        const orderId = 'POTOMU-' + Date.now();
         let total = 0;
-        let linkDownload = '';
+        let daftarFoto = '';
         itemDipilih.forEach(function(item, index) {
           total += item.harga;
-          linkDownload += `${index + 1}. ${item.nama}\n${item.link}\n\n`;
+          daftarFoto += `${index + 1}. ${item.nama} - Rp ${item.harga.toLocaleString('id-ID')}\n`;
         });
+
+        // INI FIX-NYA: GA KIRIM BASE64 LAGI. CUMA KIRIM TEKS
         const templateParams = {
-          to_name: email.split('@')[0],
-          to_email: email,
-          total_harga: total.toLocaleString('id-ID'),
-          link_download: linkDownload
+          buyer_email: email,
+          order_id: orderId,
+          fg_name: NAMA_FG,
+          total_harga: 'Rp ' + total.toLocaleString('id-ID'),
+          daftar_foto: daftarFoto,
+          download_link: `Link download akan dikirim terpisah setelah verifikasi pembayaran. Order ID: ${orderId}`
         };
+
+        console.log('Kirim ke EmailJS:', templateParams);
+
         emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
-     .then(function(response) {
-             alert('Alhamdulillah! Email link download udah dikirim ke ' + email + ' 🎉');
-             document.querySelectorAll('.checkbox').forEach(cb => cb.checked = false);
-             updateTotal();
-             kembaliKeGaleri();
+       .then(function(response) {
+            alert('Alhamdulillah! Konfirmasi order udah dikirim ke ' + email + ' 🎉 Cek spam juga ya');
+            console.log('SUKSES:', response);
+            btnKonfirm.innerText = 'Terkirim!';
+            document.querySelectorAll('.checkbox').forEach(cb => cb.checked = false);
+            updateTotal();
+            setTimeout(() => {
+              kembaliKeGaleri();
+              btnKonfirm.disabled = false;
+              btnKonfirm.innerText = 'Saya Sudah Bayar & Kirim Email';
+            }, 2000);
           }, function(error) {
-             alert('Waduh gagal kirim email 😢 Cek Service ID/Template ID/Public Key udah bener belum');
+            alert('Waduh gagal kirim email 😢 Error: ' + error.text);
+            console.log('ERROR DETAIL:', error);
+            btnKonfirm.disabled = false;
+            btnKonfirm.innerText = 'Saya Sudah Bayar & Kirim Email';
           });
       }
 
