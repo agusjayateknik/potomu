@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FOTOMU</string>
+    <string name="title_activity_main">FOTOMU</string>
+    <string name="package_name">com.sighdev.fotomu.app</string>
+    <string name="custom_url_scheme">com.sighdev.fotomu.app</string>
+</resources>

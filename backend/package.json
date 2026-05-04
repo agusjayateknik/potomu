@@ -1,0 +1,18 @@
+{
+  "name": "fotomu-app",
+  "version": "1.0.0",
+  "description": "FOTOMU - When selfie is not enough",
+  "scripts": {
+    "build": "echo 'No build step'",
+    "sync": "npx cap sync"
+  },
+  "dependencies": {
+    "@capacitor/android": "^6.1.2",
+    "@capacitor/core": "^6.1.2",
+    "@capacitor/camera": "^6.0.2",
+    "@capacitor/filesystem": "^6.0.1"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^6.1.2"
+  }
+}

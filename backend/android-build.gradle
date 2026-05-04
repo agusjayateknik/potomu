@@ -1,0 +1,28 @@
+# Android Build Configuration for FOTOMU
+# This file contains build settings for Android APK generation
+
+# Package Information
+PACKAGE_NAME=com.sighdev.fotomu.app
+APP_NAME=FOTOMU
+VERSION_CODE=1
+VERSION_NAME=1.0.0
+
+# Keystore Configuration
+KEYSTORE_PATH=../../keystore/fotomu.keystore
+KEYSTORE_PASSWORD=Fotomu2024!
+KEY_ALIAS=fotomu_key
+KEY_PASSWORD=Fotomu2024!
+
+# Build Settings
+BUILD_TYPE=release
+MIN_SDK_VERSION=21
+TARGET_SDK_VERSION=33
+COMPILE_SDK_VERSION=33
+
+# Signing Config
+SIGNING_CONFIGS=release {
+    storeFile file('$KEYSTORE_PATH')
+    storePassword '$KEYSTORE_PASSWORD'
+    keyAlias '$KEY_ALIAS'
+    keyPassword '$KEY_PASSWORD'
+}
